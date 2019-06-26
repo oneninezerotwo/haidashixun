@@ -1,0 +1,17 @@
+var request = require('request');
+var fs = require('fs');
+// request('http://www.umei.cc/p/gaoqing/cn/', function (error, response, body) {
+//   console.log('error:', error); // Print the error if one occurred
+//   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+//   console.log('body:', body); // Print the HTML for the Google homepage.
+// });
+// 图片的数组
+var imgs =  ["http://i1.whymtj.com/uploads/tu/201608/236/c77.jpg", "http://i1.whymtj.com/uploads/tu/201906/10247/cz4s8a9.jpg", "http://i1.whymtj.com/uploads/tu/201906/10231/s5v6a.jpg", "http://i1.whymtj.com/uploads/tu/201903/10286/zc615sa6.jpg", "http://i1.whymtj.com/uploads/tu/201902/10395/99basxz.jpg", "http://i1.whymtj.com/uploads/tu/201902/10227/zcva3z3a3z.jpg", "http://i1.whymtj.com/uploads/tu/201902/10044/xz89c8zz9.jpg", "http://i1.whymtj.com/uploads/tu/201901/10582/zc1z61a6az.jpg", "http://i1.whymtj.com/uploads/tu/201901/10303/zc9a09qac.jpg", "http://i1.whymtj.com/uploads/tu/201901/83/zcadwqz616.jpg", "http://i1.whymtj.com/uploads/tu/201901/10199/11tdry15.jpg", "http://i1.whymtj.com/uploads/tu/201901/10149/zc1zc6aqq.jpg", "http://i1.whymtj.com/uploads/tu/201901/10083/zc1as56q%20.jpg", "http://i1.whymtj.com/uploads/tu/201901/10014/zc6189qwd.jpg", "http://i1.whymtj.com/uploads/tu/201901/10002/caodq91_%E7%9C%8B%E5%9B%BE%E7%8E%8B.jpg", "http://i1.whymtj.com/uploads/tu/201812/10261/zc1as6az.jpg", "http://i1.whymtj.com/uploads/tu/201812/10246/ca978zca78.jpg", "http://i1.whymtj.com/uploads/tu/201812/181/z0d8a79qe.jpg", "http://i1.whymtj.com/uploads/tu/201812/10095/zc15a6sdz1a56.jpg", "http://i1.whymtj.com/uploads/tu/201812/10030/c4z9sa4da.jpg", "http://i1.whymtj.com/uploads/tu/201812/79/zc1asa6d1.jpg", "http://i1.whymtj.com/uploads/tu/201812/9999/rnba4aad4aa2.jpg", "http://i1.whymtj.com/uploads/tu/201812/4/z6c1as6qw56.jpg", "http://i1.whymtj.com/uploads/tu/201811/10815/zc1a6w1qq41fa.jpg", "http://i1.whymtj.com/uploads/tu/201811/10815/zc2a82a652cz.jpg", "http://i1.whymtj.com/uploads/tu/201811/133/das787d.jpg", "http://i1.whymtj.com/uploads/tu/201811/10815/d1sa1616.jpg", "http://i1.whymtj.com/uploads/tu/201811/10815/dsk4da654d6a.jpg", "http://i1.whymtj.com/uploads/tu/201811/10090/da1s646.jpg", "http://i1.whymtj.com/uploads/tu/201811/89/df41aeedbf.jpg", "http://i1.whymtj.com/uploads/tu/201811/88/4af6856f29.jpg", "http://i1.whymtj.com/uploads/tu/201903/10286/zc615sa6.jpg", "http://i1.whymtj.com/uploads/tu/201902/10395/99basxz.jpg", "http://i1.whymtj.com/uploads/tu/201902/10227/zcva3z3a3z.jpg", "http://i1.whymtj.com/uploads/tu/201902/10044/xz89c8zz9.jpg", "http://i1.whymtj.com/uploads/tu/201901/10582/zc1z61a6az.jpg", "http://i1.whymtj.com/uploads/tu/201901/10303/zc9a09qac.jpg", "http://i1.whymtj.com/uploads/tu/201901/83/zcadwqz616.jpg", "http://i1.whymtj.com/uploads/tu/201901/10199/11tdry15.jpg", "http://i1.whymtj.com/uploads/tu/201901/10149/zc1zc6aqq.jpg", "http://i1.whymtj.com/uploads/tu/201901/10083/zc1as56q%20.jpg", "http://i1.whymtj.com/uploads/tu/201901/10014/zc6189qwd.jpg", "http://i1.whymtj.com/uploads/tu/201901/10002/caodq91_%E7%9C%8B%E5%9B%BE%E7%8E%8B.jpg"]
+// for(var i = 0;i<imgs.length;i++){
+//     request(imgs[i]).pipe(fs.createWriteStream('./imgs/'+i+`.png`))
+// }
+var i = 0
+setInterval(function(){
+    i++
+    request(imgs[i]).pipe(fs.createWriteStream('./imgs/'+i+`.png`))
+},3000)
