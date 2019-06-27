@@ -1,0 +1,31 @@
+<img src="./img/1.jpg" />
+<script type="text/javascript">
+	// 扩展API加载完毕后调用onPlusReady回调函数 
+	document.addEventListener('plusready', onPlusReady, false);
+	// 扩展API加载完毕，现在可以正常调用扩展API
+	function onPlusReady() {
+		// 定位
+		plus.geolocation.getCurrentPosition(function(p) {
+			// latitude精度
+			// longitude维度
+			// altitude高度
+			alert('Geolocation\nLatitude:' + p.coords.latitude + '\nLongitude:' + p.coords.longitude + '\nAltitude:' + p.coords
+				.altitude);
+		}, function(e) {
+			alert('Geolocation error: ' + e.message);
+		});
+
+		// 获取联系人
+		plus.contacts.getAddressBook(plus.contacts.ADDRESSBOOK_PHONE, function(addressbook) {
+			addressbook.find(null,function(contacts){
+				alert("你的联系人总数:"+contacts.length)
+				alert(JSON.stringify(contacts))
+			})
+			// 所有联系方式
+			// 可通过addressbook进行通讯录操作
+			alert("Get address book success!");
+		}, function(e) {
+			alert("Get address book failed: " + e.message);
+		});
+	}
+</script>
